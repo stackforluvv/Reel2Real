@@ -22,6 +22,7 @@ header {
    background: transparent;
    float: left;
    position : fixed;
+   display: flex;
  }
 
 Header #logo {
@@ -58,7 +59,6 @@ header #logo span {
 
 @media (max-width: 700px) {
     #logo {
-        margin-top: 15px;
         width: 100%;
         font-size: 1.5em; 
       }
@@ -77,24 +77,35 @@ header #logo span {
   margin-bottom: 10px;
 }
 
-#menu > a {color: #ffffff;}
-#menu > a:hover {
+
+.menu-links {
+    display: flex;
+    justify-content: center;
+    gap: 65px;
+}
+
+.menu-links a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.menu-links a:hover {
     color: #cccccc;
-    text-decoration: underline;
 }
-#menu > a:not(:last-child) {
-    margin-right: 7%;
-}
+
+.fixed .menu-links a {color: #000000;}
+.fixed .menu-links a:hover {color: #3b3b3b;}
+
 .fixed {
-    z-index: 5000;
+    z-index: 9999;
     background-color: #d8d8d8;
-    border-bottom: 1px solid #e5e5e5;
     transition: all 0.3s ease-in-out;
 }
 
 header.fixed #logo {color: #000000;}
-.fixed #menu > a {color: #000000;}
-.fixed #menu > a:hover {color: #3b3b3b;}
 
 #top {
     width: 100%;

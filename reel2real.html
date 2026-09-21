@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reel To Real</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <header>
+        <div id="logo" onclick="slowScroll(`#top`)">
+            <span>Reel To Real</span>
+        </div>
+        <div id="menu">
+            <a href="#" title="Магазины" onclick="slowScroll(`#magaziny`)">Магазины</a>
+            <a href="#" title="Контакты" onclick="slowScroll(`#kontakty`)">Контакты</a>
+            <a href="#" title="Войти" onclick="slowScroll(`#voiti`)">Войти</a>
+        </div>
+    </header>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script >
+        function slowScroll(id) {
+            $('html, body').animate({
+                scrollTop: $(id).offset().top
+            }, 500);
+        }
+
+        $(document).on('scroll', function() {
+            if ($(window).scrollTop() === 0) {
+                $('header').removeClass('fixed');
+            } else {
+                $('header').attr('class', 'fixed');
+            }
+        });
+    </script>
+
+    <div id="top">
+        <h1>Reel To Real</h1>
+        <h3>Звук, который можно потрогать
+        </h3>
+    </div>
+</body>
+</html>
+

@@ -19,7 +19,6 @@
             </div>
         </div>
     </header>
-    <script src="./js/scripts.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script >
         function slowScroll(id) {
@@ -39,9 +38,14 @@
 
     <div id="top">
         <h1>Reel To Real</h1>
-        <h3>Звук, который можно потрогать
+        <h3 >Звук, который можно потрогать
         </h3>
+        <input type="text" id="userInput" placeholder="Введите ваше имя">
+        <button onclick="greetUser()">Ввести</button>
+        <h1 id="greeting"></h1>
     </div>
+    <script src="./js/scripts.js"></script>
+
 </body>
 </html>
 

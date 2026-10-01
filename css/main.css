@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
 * {
     margin: 0;
@@ -12,21 +13,25 @@ body, html {
 }
 
 body {
-    background-color: #030303;
-    font-family: 'Bebas Neue', helvetica, sans-serif;
+    background-color: #fffefe;
+    font-family: 'Montserrat', sans-serif;
 }
 
 header {
    width: 100%;
    padding: 10px 0.5% 0px 0.5%;
-   background: transparent;
-   float: left;
+   background: #ffffff;
    position : fixed;
    display: flex;
+   top: 0;
+   left: 0;
+   z-index: 9999;
+   border-bottom: 1px solid #a5a5a5;
+
  }
 
 Header #logo {
-   color: #ffffff;
+   color: #666666;
    cursor: pointer;
 }
 
@@ -35,6 +40,7 @@ header #logo span {
    line-height: 45px;
    margin-left: 40px;
    font-family: 'Bebas Neue', serif;
+   
 }
 
 @media (min-width: 701px) {
@@ -54,7 +60,7 @@ header #logo span {
     width: 67%;
     height: 100%;
     text-align: center;
-    color: #ffffff;
+    color: #666666;
 }
 
 @media (max-width: 700px) {
@@ -83,9 +89,14 @@ header #logo span {
     justify-content: center;
     gap: 65px;
 }
+#magaziny {
+    display: flex;
+    justify-content: left;
+    gap: 65px;
+}
 
 .menu-links a {
-    color: #ffffff;
+    color: #666666;
     text-decoration: none;
     transition: color 0.3s ease-in-out;
     font-size: 18px;
@@ -97,46 +108,124 @@ header #logo span {
 }
 
 .fixed .menu-links a {color: #000000;}
-.fixed .menu-links a:hover {color: #3b3b3b;}
+.fixed .menu-links a:hover {color: #666666;}
 
 .fixed {
     z-index: 9999;
-    background-color: #d8d8d8;
-    transition: all 0.3s ease-in-out;
+    background-color: #ffffff;
+    transition: all 0.5s ease-in-out;
 }
 
 header.fixed #logo {color: #000000;}
-
-#top {
-    width: 100%;
-    height: 1000px;
-    background-image: url('https://atypicalvagabond.com/wp-content/uploads/2025/03/qx-z_dzilrq.webp');  
-    background-blend-mode: multiply;
-    background-size: cover; 
-    background-color: #444444;
-    background-size: cover;
-    text-align: center;
-    color: #fdfcfc;
-    font-size: 3em;
-}
-#top h1 {
-    padding-top: 20%;
-}
-
-#top h3 {
-    color: #b6b4b4;
-}
 
 input {
     padding: 14px;
     border: none;
     font-size: 16px;
     border-radius: 12px;
+    height: 8px;
+    background: #ffffff; 
+
 }
 
 button {
     border: none;
     padding: 14px;
-    background: #b6b4b4;
-    border-radius: 12px;
+    background: #f5f3f3;
+    border-radius: none;   
+    width: 316px;
+    height: 60px;
+    border: 2px solid #2563EB;
+    color: #2563EB;
 }
+
+#top {
+    width: 100%;
+    margin-top: 165px;
+    display: flex;
+}
+
+#top .image {
+    width: 50%;
+}
+
+#top .image img {
+    width: 100%;
+    height: 640px;
+    object-fit: cover;
+    display: block;
+}
+
+#top .text {
+    width: 50%;
+    height: 640px;
+    background-color: #2563EB;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    
+    color: rgb(252, 252, 252);
+}
+
+#top .text h1 {
+    width: 478px;
+    height: 172px;
+
+}
+
+
+#top .text p {
+    font-size: 22px;
+    margin: 0;
+}
+
+#img {
+   width: 512px;
+   height: 512px;
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(130%, -50%);
+}
+
+
+
+
+.ticker {
+    width: 100%;
+    height: 110px;
+    color: #2563EB;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.ticker-track {
+    display: flex;
+    width: max-content;
+
+    animation: tickerMove 90s linear infinite;
+}
+
+.ticker-track span {
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-size: 30px;
+    padding-right: 100px;
+}
+
+@keyframes tickerMove {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
+}
+
+

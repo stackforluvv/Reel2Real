@@ -132,17 +132,29 @@ button {
     border: none;
     padding: 14px;
     background: #f5f3f3;
-    border-radius: none;   
-    width: 316px;
-    height: 60px;
-    border: 2px solid #2563EB;
+    border-radius: 8px;
+    width: 280px;
+    height: 56px;
+    border: 2px solid #ffffff;
     color: #2563EB;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+button:hover {
+    background: #2563EB;
+    color: #ffffff;
 }
 
 #top {
     width: 100%;
     margin-top: 140px;
+    min-height: 720px;
     display: flex;
+    position: relative;
+    overflow: hidden;
 }
 
 #top .image {
@@ -151,43 +163,77 @@ button {
 
 #top .image img {
     width: 100%;
-    height: 640px;
+    height: 100%;
     object-fit: cover;
     display: block;
 }
 
 #top .text {
     width: 50%;
-    height: 640px;
     background-color: #2563EB;
-    
+
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: left;
-    
+    align-items: flex-start;
+    gap: 28px;
+    padding: 0 70px;
+    box-sizing: border-box;
+
     color: rgb(252, 252, 252);
 }
 
 #top .text h1 {
-    width: 478px;
-    height: 172px;
-
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 1.1;
+    letter-spacing: 0.5px;
+    max-width: 480px;
 }
 
-
 #top .text p {
-    font-size: 22px;
+    font-size: 20px;
+    line-height: 1.6;
     margin: 0;
+    max-width: 480px;
+    color: rgba(255, 255, 255, 0.85);
 }
 
 #img {
-   width: 512px;
-   height: 512px;
+   width: clamp(200px, 30vw, 512px);
+   aspect-ratio: 1 / 1;
    position: absolute;
-   left: 50%;
+   right: 0;
    top: 50%;
-   transform: translate(130%, -50%);
+   transform: translate(50%, -50%);
+   transform-origin: center;
+   animation: bassPulse 0.8s ease-in-out infinite;
+
+   background: #ffffff;
+   -webkit-mask-image: url('../pic/26b5fd01695d38de3e0a84d10cfb095cc6f382e5.png');
+   mask-image: url('../pic/26b5fd01695d38de3e0a84d10cfb095cc6f382e5.png');
+   -webkit-mask-size: contain;
+   mask-size: contain;
+   -webkit-mask-repeat: no-repeat;
+   mask-repeat: no-repeat;
+   -webkit-mask-position: center;
+   mask-position: center;
+}
+
+@keyframes bassPulse {
+    0% {
+        transform: translate(50%, -50%) scale(1);
+    }
+    15% {
+        transform: translate(50%, -50%) scale(1.12);
+    }
+    40% {
+        transform: translate(50%, -50%) scale(0.97);
+    }
+    100% {
+        transform: translate(50%, -50%) scale(1);
+    }
 }
 
 

@@ -65,16 +65,17 @@
 // checkUser(name, age, movie);
 // console.log(age >= 18 && restrictedMovies.includes(movie));
 
-const inputElement = document.getElementById('userInput');
-const userGreeting = document.getElementById('greeting');
+//const inputElement = document.getElementById('userInput');
+//const userGreeting = document.getElementById('greeting');
 
-const greetUser = () => {
-    const userName = inputElement.value.trim();
+//const greetUser = () => {
+    //const userName = inputElement.value.trim();
     
-    if (userName !== '') {
-        userGreeting.textContent = `Привет, ${userName}!`;
-    } else {
-        userGreeting.textContent = '';
+    //if (userName !== '') {
+       // userGreeting.textContent = `Привет, ${userName}!`;
+    //} else {
+        //userGreeting.textContent = '';
 
-    }
-}
+    //}
+//}
+

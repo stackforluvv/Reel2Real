@@ -83,6 +83,78 @@
 
 </div>
 
+<section id="kontakty">
+
+    <div class="contact-intro">
+        <span class="contact-label">Контакты</span>
+
+        <h2>Напишите нам.<br>
+            Ответим быстрее,<br>
+            чем доиграет<br>
+            сторона А</h2>
+
+        <p class="contact-note">Обычно отвечаем минут за двадцать. Сторона А длится около двадцати двух.</p>
+
+        <dl class="contact-details">
+            <dt>Почта</dt>
+            <dd><a href="mailto:hello@reel2real.ru">hello@reel2real.ru</a></dd>
+            <dt>Телефон</dt>
+            <dd><a href="tel:+70000000000">+7 000 000-00-00</a></dd>
+            <dt>Мастерская</dt>
+            <dd>Москва, ул. Аналоговая, 33⅓</dd>
+        </dl>
+    </div>
+
+    <div class="contact-box">
+
+        <form id="contactForm" novalidate>
+
+            <fieldset class="topics">
+                <legend>О чём поговорим?</legend>
+                <label><input type="radio" name="topic" value="Купить" checked><span>Хочу купить</span></label>
+                <label><input type="radio" name="topic" value="Продать"><span>Хочу продать</span></label>
+                <label><input type="radio" name="topic" value="Реставрация"><span>Починить технику</span></label>
+                <label><input type="radio" name="topic" value="Другое"><span>Просто поболтать</span></label>
+            </fieldset>
+
+            <label class="field">
+                <span class="field-label">Как вас зовут</span>
+                <input type="text" name="name" placeholder="Например, Игорь" autocomplete="name">
+                <em class="field-error"></em>
+            </label>
+
+            <label class="field">
+                <span class="field-label">Как с вами связаться</span>
+                <input type="text" name="contact" placeholder="Почта, телефон или @telegram">
+                <em class="field-error"></em>
+            </label>
+
+            <label class="field">
+                <span class="field-label">Сообщение <i id="messageCounter">0 / 1000</i></span>
+                <textarea name="message" rows="1" maxlength="1000"
+                    placeholder="Ищу первый пресс Abbey Road. Или просто расскажите, что слушаете"></textarea>
+                <em class="field-error"></em>
+            </label>
+
+            <div class="form-bottom">
+                <button type="submit" id="contactSubmit">Отправить</button>
+                <p class="form-hint">Нажимая кнопку, вы ничего не подписываете.<br>
+                    Просто отправляете письмо живым людям.</p>
+            </div>
+
+        </form>
+
+        <div class="form-success" id="formSuccess" hidden>
+            <div class="vinyl"></div>
+            <h3 id="successTitle">Спасибо!</h3>
+            <p>Письмо улетело. Пока ждёте ответа — переверните пластинку.</p>
+            <button type="button" id="contactAgain">Написать ещё</button>
+        </div>
+
+    </div>
+
+</section>
+
     <script src="./js/scripts.js"></script>
 
 </body>

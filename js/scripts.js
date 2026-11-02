@@ -80,25 +80,101 @@
 //}
 
 
+// ---------- Форма контактов ----------
 
+const contactForm = document.getElementById('contactForm');
+const contactSubmit = document.getElementById('contactSubmit');
+const formSuccess = document.getElementById('formSuccess');
+const successTitle = document.getElementById('successTitle');
+const contactAgain = document.getElementById('contactAgain');
+const messageField = contactForm.elements.message;
+const messageCounter = document.getElementById('messageCounter');
 
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const telegramPattern = /^@[a-zA-Z0-9_]{4,}$/;
 
+const isValidContact = (value) => {
+    const digits = value.replace(/\D/g, '');
+    return emailPattern.test(value) || telegramPattern.test(value) || digits.length >= 10;
+}
 
+const setError = (field, text) => {
+    const wrapper = field.closest('.field');
+    wrapper.classList.toggle('invalid', text !== '');
+    wrapper.querySelector('.field-error').textContent = text;
+}
 
+const validateForm = () => {
+    const name = contactForm.elements.name;
+    const contact = contactForm.elements.contact;
+    let isValid = true;
 
+    if (name.value.trim() === '') {
+        setError(name, 'Нам нужно как-то к вам обращаться');
+        isValid = false;
+    } else {
+        setError(name, '');
+    }
 
-//let name = prompt('Как тебя зовут?');
-//alert('Привет, ' + name + '!');
+    if (contact.value.trim() === '') {
+        setError(contact, 'Без этого мы не сможем ответить');
+        isValid = false;
+    } else if (!isValidContact(contact.value.trim())) {
+        setError(contact, 'Похоже на опечатку. Проверьте, пожалуйста');
+        isValid = false;
+    } else {
+        setError(contact, '');
+    }
 
-//let answer = prompt('ты знаком с языком JavaScript?');
-//if (answer.toLowerCase() === 'да') {
-    //alert('Молодец!');
-//}
-//if (answer.toLowerCase() === 'нет') {
-    //alert('Можно начать изучение прямо сейчас!');
-//}
+    if (messageField.value.trim().length < 5) {
+        setError(messageField, 'Напишите хотя бы пару слов');
+        isValid = false;
+    } else {
+        setError(messageField, '');
+    }
 
+    return isValid;
+}
 
+// Поле сообщения растёт вместе с текстом
+messageField.addEventListener('input', () => {
+    messageField.style.height = 'auto';
+    messageField.style.height = messageField.scrollHeight + 'px';
+    messageCounter.textContent = `${messageField.value.length} / 1000`;
+});
 
+// Убираем ошибку, как только человек начал исправлять
+contactForm.addEventListener('input', (event) => {
+    if (event.target.closest('.field.invalid')) {
+        setError(event.target, '');
+    }
+});
 
+contactForm.addEventListener('submit', (event) => {
+    event.preventDefault();
 
+    if (!validateForm()) {
+        contactForm.querySelector('.field.invalid input, .field.invalid textarea').focus();
+        return;
+    }
+
+    contactSubmit.disabled = true;
+    contactSubmit.textContent = 'Отправляем…';
+
+    // Здесь будет настоящая отправка на сервер, пока просто имитируем
+    setTimeout(() => {
+        successTitle.textContent = `Спасибо, ${contactForm.elements.name.value.trim()}!`;
+        contactForm.hidden = true;
+        formSuccess.hidden = false;
+        contactSubmit.disabled = false;
+        contactSubmit.textContent = 'Отправить';
+    }, 1200);
+});
+
+contactAgain.addEventListener('click', () => {
+    contactForm.reset();
+    messageField.style.height = 'auto';
+    messageCounter.textContent = '0 / 1000';
+    formSuccess.hidden = true;
+    contactForm.hidden = false;
+});

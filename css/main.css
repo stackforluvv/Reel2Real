@@ -275,3 +275,264 @@ button:hover {
 }
 
 
+/* ---------- Контакты ---------- */
+
+#kontakty {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    padding: 140px 70px 160px;
+    box-sizing: border-box;
+    border-top: 1px solid #e5e5e5;
+}
+
+.contact-label,
+.field-label,
+.topics legend,
+.contact-details dt {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #a5a5a5;
+}
+
+.contact-intro h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    font-size: 84px;
+    line-height: 0.95;
+    color: #2563EB;
+    margin: 24px 0 32px;
+}
+
+.contact-note {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666666;
+    max-width: 420px;
+}
+
+.contact-details {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    row-gap: 18px;
+    align-items: baseline;
+}
+
+.contact-details dd {
+    font-size: 18px;
+    color: #000000;
+}
+
+.contact-details a {
+    color: #2563EB;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(37, 99, 235, 0.3);
+    transition: border-color 0.2s ease-in-out;
+}
+
+.contact-details a:hover {
+    border-color: #2563EB;
+}
+
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+}
+
+.topics {
+    border: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.topics legend {
+    margin-bottom: 16px;
+}
+
+.topics input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.topics span {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #2563EB;
+    border-radius: 100px;
+    color: #2563EB;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.topics span:hover {
+    background: rgba(37, 99, 235, 0.08);
+}
+
+.topics input:checked + span {
+    background: #2563EB;
+    color: #ffffff;
+}
+
+.topics input:focus-visible + span {
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.25);
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.field-label {
+    display: flex;
+    justify-content: space-between;
+}
+
+.field-label i {
+    font-style: normal;
+    letter-spacing: 0;
+}
+
+.field input,
+.field textarea {
+    height: auto;
+    padding: 10px 0 14px;
+    border: none;
+    border-bottom: 2px solid #e0e0e0;
+    border-radius: 0;
+    background: transparent;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    color: #000000;
+    resize: none;
+    overflow: hidden;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+    color: #c7c7c7;
+}
+
+.field input:focus,
+.field textarea:focus {
+    border-color: #2563EB;
+}
+
+.field-error {
+    min-height: 18px;
+    font-size: 14px;
+    font-style: normal;
+    color: #e5484d;
+}
+
+.field.invalid input,
+.field.invalid textarea {
+    border-color: #e5484d;
+}
+
+.form-bottom {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+#kontakty button {
+    width: auto;
+    padding: 0 56px;
+    background: #2563EB;
+    border-color: #2563EB;
+    color: #ffffff;
+}
+
+#kontakty button:hover {
+    background: #ffffff;
+    color: #2563EB;
+}
+
+#kontakty button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.form-hint {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #a5a5a5;
+}
+
+.form-success {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    height: 100%;
+}
+
+#contactForm[hidden],
+#contactForm[hidden],
+.form-success[hidden] {
+    display: none;
+}
+
+.form-success h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    font-size: 72px;
+    line-height: 1;
+    color: #2563EB;
+}
+
+.form-success p {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #666666;
+    margin-bottom: 20px;
+}
+
+.vinyl {
+    width: 140px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle, #ffffff 0 5%, #2563EB 5.5% 28%, transparent 28.5%),
+        repeating-radial-gradient(circle, #111111 0 2px, #2a2a2a 2px 4px);
+    animation: vinylSpin 1.8s linear infinite;
+}
+
+@keyframes vinylSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 900px) {
+    #kontakty {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        padding: 100px 20px 120px;
+    }
+
+    .contact-intro h2 {
+        font-size: 60px;
+    }
+
+    .contact-details {
+        grid-template-columns: 110px 1fr;
+    }
+
+    .field input,
+    .field textarea {
+        font-size: 20px;
+    }
+}

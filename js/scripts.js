@@ -79,3 +79,26 @@
     //}
 //}
 
+
+
+
+
+
+
+
+
+//let name = prompt('Как тебя зовут?');
+//alert('Привет, ' + name + '!');
+
+//let answer = prompt('ты знаком с языком JavaScript?');
+//if (answer.toLowerCase() === 'да') {
+    //alert('Молодец!');
+//}
+//if (answer.toLowerCase() === 'нет') {
+    //alert('Можно начать изучение прямо сейчас!');
+//}
+
+
+
+
+
